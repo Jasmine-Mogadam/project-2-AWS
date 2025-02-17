@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login Page</title>
+		<style>
+			.error {
+				color: red;
+			}
+			.success {
+				color: green;
+			}
+			form {
+				max-width: 300px;
+				margin: 20px auto;
+				padding: 20px;
+			}
+			label {
+				display: block;
+				margin: 10px 0;
+			}
+			input {
+				width: 100%;
+				padding: 8px;
+				margin-bottom: 15px;
+			}
+			button {
+				padding: 10px 20px;
+				background-color: #007bff;
+				color: white;
+				border: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<form method="POST">
+			<h2>Login</h2>
+			<a href="/register">Don't have an account?</a>
+
+			{% with messages = get_flashed_messages(category_filter=["error"]) %} {%
+			if messages %}
+			<div class="error">
+				<ul>
+					{% for msg in messages %}
+					<li>{{ msg }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %} {% endwith %}
+
+			<label for="username">Username:</label>
+			<input
+				type="text"
+				id="username"
+				name="username"
+				required
+			/>
+
+			<label for="password">Password:</label>
+			<input
+				type="password"
+				id="password"
+				name="password"
+				required
+			/>
+
+			<button type="submit">Login</button>
+		</form>
+	</body>
+</html>

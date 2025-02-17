@@ -1,2 +1,4 @@
 *.ppk
 *.pem
+*.pyc
+/uploads
